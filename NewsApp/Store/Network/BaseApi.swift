@@ -34,6 +34,7 @@ class BaseApi<T: TargetType> {
                     case .success:
                         
                         do{
+                            print(responce.result)
 //
                           
                             

@@ -22,15 +22,27 @@ class ViewController: UIViewController {
 //            .responseJSON { res  in
 //                print(res)
 //            }
-        AllMovieApi.shared.discoverMovies(page: 1).subscribe { model in
-            print(model.results?.first?.title)
-        } onError: { error in
-            print(error.localizedDescription)
-        } onCompleted: {
-            print("completed")
-        }.disposed(by: dispose)
+//        AllMovieApi.shared.discoverMovies(page: 1)
+//            .subscribe { model in
+//            print(model.results?.first?.title)
+//        } onError: { error in
+//            print(error.localizedDescription)
+//        } onCompleted: {
+//            print("completed")
+//        }.disposed(by: dispose)
+        UserApi.shared
+            .register(name: "ahmedd", email: "teest@test65365.com", password: "123123")
+//            .login(email: "test@test.com", password: "123123")
+            .subscribe { User in
+                print(User)
+            } onError: { error in
+               print(error.localizedDescription)
 
-       
+            } onCompleted: {
+                    print("completed")
+
+            }.disposed(by: dispose)
+
     }
 }
 
