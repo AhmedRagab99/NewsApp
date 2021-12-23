@@ -24,11 +24,12 @@
 		D0EC43AA277359CB00D840B5 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43A9277359CB00D840B5 /* TargetType.swift */; };
 		D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43AB277359FE00D840B5 /* BaseApi.swift */; };
 		D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43AE27744F8400D840B5 /* UsersApi.swift */; };
-		D0EC43B227745B2100D840B5 /* AllMoviewNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */; };
-		D0EC43B427745D7A00D840B5 /* AllMovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */; };
+		D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B127745B2100D840B5 /* NewsNetworking.swift */; };
+		D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B327745D7A00D840B5 /* NewsApi.swift */; };
 		D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B627745F3A00D840B5 /* MovieModel.swift */; };
 		D0EC43B927746E4E00D840B5 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B827746E4E00D840B5 /* UserNetworking.swift */; };
 		D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43BA277470A700D840B5 /* UserModel.swift */; };
+		D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43C02774771200D840B5 /* NewsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,11 +67,12 @@
 		D0EC43A9277359CB00D840B5 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		D0EC43AB277359FE00D840B5 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		D0EC43AE27744F8400D840B5 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
-		D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMoviewNetworking.swift; sourceTree = "<group>"; };
-		D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMovieApi.swift; sourceTree = "<group>"; };
+		D0EC43B127745B2100D840B5 /* NewsNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworking.swift; sourceTree = "<group>"; };
+		D0EC43B327745D7A00D840B5 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		D0EC43B627745F3A00D840B5 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		D0EC43B827746E4E00D840B5 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		D0EC43BA277470A700D840B5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		D0EC43C02774771200D840B5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +213,8 @@
 		D0EC43B027745B0B00D840B5 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */,
-				D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */,
+				D0EC43B127745B2100D840B5 /* NewsNetworking.swift */,
+				D0EC43B327745D7A00D840B5 /* NewsApi.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -222,6 +224,7 @@
 			children = (
 				D0EC43B627745F3A00D840B5 /* MovieModel.swift */,
 				D0EC43BA277470A700D840B5 /* UserModel.swift */,
+				D0EC43C02774771200D840B5 /* NewsModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -375,10 +378,11 @@
 				D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */,
 				D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */,
 				D0EC43712773462800D840B5 /* NewsApp.xcdatamodeld in Sources */,
-				D0EC43B227745B2100D840B5 /* AllMoviewNetworking.swift in Sources */,
+				D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */,
+				D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */,
 				D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */,
 				D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */,
-				D0EC43B427745D7A00D840B5 /* AllMovieApi.swift in Sources */,
+				D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */,
 				D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
