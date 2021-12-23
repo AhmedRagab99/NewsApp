@@ -27,32 +27,19 @@ class BaseApi<T: TargetType> {
             print("insidee observer")
             
             AF.request(target.baseUrl + target.path, method: method, parameters: params.0, encoding: params.1, headers: headers)
-            //                .validate(statusCode: 200 ... 310)
                 .responseData { responce in
-                    
                     switch responce.result{
                     case .success:
                         
                         do{
-                            print(responce.result)
-//
-                          
-                            
-                            
-                            
                             guard let data = responce.data
-//
                             else{
                                 print("error in data")
                                 return observer.onError(ApiError.noData)
                             }
-//                                    responce.data else {return observer.onError(ApiError.noData)}
-                            
                             
                             let decoder = JSONDecoder()
-//                            decoder.keyDecodingStrategy = .convertFromSnakeCase
                             let responceObject = try decoder.decode(M.self,from:data)
-//                            print(responceObject)
                             return observer.onNext(responceObject)
                         }
                         catch{
@@ -61,11 +48,9 @@ class BaseApi<T: TargetType> {
                             
                         }
                     case .failure(let error):
-                        print("insidee error")
+                        print("inside error")
                         
                         return observer.onError(error)
-                        
-                        
                     }
                 }
             print("insidee disposee")
@@ -82,7 +67,7 @@ class BaseApi<T: TargetType> {
             return (parameters, encoding)
         case .requstQuareyParametares(parameters: let parameters, encoding: let encoding):
             return  (parameters,encoding)
-
+            
         }
     }
 }
