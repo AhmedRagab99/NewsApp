@@ -21,6 +21,12 @@
 		D0EC439E277347E000D840B5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D0EC439D277347E000D840B5 /* RxCocoa */; };
 		D0EC43A0277347E000D840B5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0EC439F277347E000D840B5 /* RxSwift */; };
 		D0EC43A32773482400D840B5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D0EC43A22773482400D840B5 /* Kingfisher */; };
+		D0EC43AA277359CB00D840B5 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43A9277359CB00D840B5 /* TargetType.swift */; };
+		D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43AB277359FE00D840B5 /* BaseApi.swift */; };
+		D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43AE27744F8400D840B5 /* UsersApi.swift */; };
+		D0EC43B227745B2100D840B5 /* AllMoviewNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */; };
+		D0EC43B427745D7A00D840B5 /* AllMovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */; };
+		D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B627745F3A00D840B5 /* MovieModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		D0EC43862773462B00D840B5 /* NewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EC438A2773462B00D840B5 /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		D0EC438C2773462B00D840B5 /* NewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D0EC43A9277359CB00D840B5 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		D0EC43AB277359FE00D840B5 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		D0EC43AE27744F8400D840B5 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
+		D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMoviewNetworking.swift; sourceTree = "<group>"; };
+		D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMovieApi.swift; sourceTree = "<group>"; };
+		D0EC43B627745F3A00D840B5 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +121,9 @@
 		D0EC43652773462800D840B5 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0EC43A62773557000D840B5 /* Store */,
+				D0EC43A52773556800D840B5 /* Core */,
+				D0EC43A4277354AA00D840B5 /* presentation */,
 				D0EC43662773462800D840B5 /* AppDelegate.swift */,
 				D0EC43682773462800D840B5 /* SceneDelegate.swift */,
 				D0EC436A2773462800D840B5 /* ViewController.swift */,
@@ -136,6 +151,73 @@
 				D0EC438C2773462B00D840B5 /* NewsAppUITestsLaunchTests.swift */,
 			);
 			path = NewsAppUITests;
+			sourceTree = "<group>";
+		};
+		D0EC43A4277354AA00D840B5 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		D0EC43A52773556800D840B5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43B527745F2C00D840B5 /* Entity */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D0EC43A62773557000D840B5 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43A82773559600D840B5 /* Cache */,
+				D0EC43A72773558300D840B5 /* Network */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		D0EC43A72773558300D840B5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43B027745B0B00D840B5 /* News */,
+				D0EC43AD27744F7900D840B5 /* Users */,
+				D0EC43A9277359CB00D840B5 /* TargetType.swift */,
+				D0EC43AB277359FE00D840B5 /* BaseApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D0EC43A82773559600D840B5 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		D0EC43AD27744F7900D840B5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43AE27744F8400D840B5 /* UsersApi.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		D0EC43B027745B0B00D840B5 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43B127745B2100D840B5 /* AllMoviewNetworking.swift */,
+				D0EC43B327745D7A00D840B5 /* AllMovieApi.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		D0EC43B527745F2C00D840B5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43B627745F3A00D840B5 /* MovieModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +362,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EC43AA277359CB00D840B5 /* TargetType.swift in Sources */,
 				D0EC436B2773462800D840B5 /* ViewController.swift in Sources */,
+				D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */,
 				D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */,
+				D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */,
 				D0EC43712773462800D840B5 /* NewsApp.xcdatamodeld in Sources */,
+				D0EC43B227745B2100D840B5 /* AllMoviewNetworking.swift in Sources */,
 				D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */,
+				D0EC43B427745D7A00D840B5 /* AllMovieApi.swift in Sources */,
+				D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +553,7 @@
 				DEVELOPMENT_TEAM = 7Z6V95G685;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -494,6 +583,7 @@
 				DEVELOPMENT_TEAM = 7Z6V95G685;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
