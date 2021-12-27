@@ -20,7 +20,7 @@ protocol LogInUserRepoProtocol{
 
 class LogInUserRepo:LogInUserRepoProtocol{
     func getUserLogedInDatafromNetwork(data: [String : Any]) -> Observable<UserModel> {
-        return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
+      return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
         
     }
     

@@ -51,7 +51,7 @@ extension UserNetworking:TargetType{
         switch self{
         case .logIn,.register:
             return ["content-type":"application/json;charset=utf-8"]
-
+            
         }
     }
     

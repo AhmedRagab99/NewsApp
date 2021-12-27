@@ -25,47 +25,60 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     // MARK: Propereties
-
+    
     var apiKey = ProcessInfo.processInfo.environment["NEWSAPI"]!
     let dispose = DisposeBag()
-//    let useCase:LoginUseCaseProtocol = LoginUseCase()
+    let useCase:LoginUseCaseProtocol = LoginUseCase()
+    var loginViewModel:LoginViewModel!
+    let disposeBag = DisposeBag()
     
-  
     
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        AF.request("https://newsapi.org/v2/everything?q=tesla&from=2021-11-22&sortBy=publishedAt&apiKey=\(apiKey)")
-//            .responseJSON { res  in
-//                print(res)
-//            }
         
         
-        let param = ["email":"test@test.com","password":"123123"]
         
+        self.loginViewModel =  LoginViewModel()
+        bindViews()
+        activateSubmitButton()
         
-//        useCase.getUserData(storeType: .network, data: param).asObservable().subscribe { model in
-//            print(model)
-//        } onError: { error in
-//            print(error.localizedDescription)
-//        } onCompleted: {
-//            print("completed")
-//        } .disposed(by: dispose)
-
+        self.submitButton.rx.tap.subscribe{_ in self.loginViewModel.TapOnSubmitButton()}.disposed(by: disposeBag)
         
-//        NewsApi.shared.getEverething(apiKey: apiKey, q: "sports").subscribe { model in
-//            print(model)
-//        } onError: { error in
-//            print(error.localizedDescription)
-//        } onCompleted: {
-//            print("completed")
-//        }.disposed(by: dispose)
-
-       
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    
+    func activateSubmitButton(){
+        loginViewModel.isValid.asObservable().subscribe { [weak self]value in
+            
+            self?.submitButton.setTitle(value.element! ? "Enabeld":"Not Enabeld" , for: .normal)
+            self?.submitButton.tintColor = value.element! ? .green:.red
+        }.disposed(by: disposeBag)
     }
+    
+    
+    
+    
+    
+    func bindViews(){
+        
+        emailTextField.rx.text.map{$0 ?? ""}.bind(to:loginViewModel.emailText).disposed(by: disposeBag)
+        
+        passwordTextField.rx.text.map{$0 ?? ""}
+        .bind(to: loginViewModel.passwordText).disposed(by: disposeBag)
+        
+        confirmPasswordTeextField.rx.text.map{$0 ?? ""}
+        .bind(to:loginViewModel.passwordConfirmationText).disposed(by: disposeBag)
+        
+        submitButton.rx.tap.bind(to:loginViewModel.submitButtonTaped).disposed(by: disposeBag)
+        
+        
+        loginViewModel.isValid.bind(to:submitButton.rx.isEnabled).disposed(by: disposeBag)
+        
+        
+    }
+    
+    
 }
+
 
