@@ -9,20 +9,34 @@ import Foundation
 import RxSwift
 
 protocol LogInUserRepoProtocol{
-    func getUserLogedInDatafromNetwork(
-        //        email:String,password:String
-        data:[String:Any]
-    )
-    ->Observable<UserModel>
-    //    func getUserDataFromCache()->Observable<UserModel>
+    func getUserLogedInDatafromNetwork(data:[String:Any])->Observable<UserModel>
+    func getUserDataFromCache()->Observable<[UserCache]>
+    
 }
 
 
 class LogInUserRepo:LogInUserRepoProtocol{
     func getUserLogedInDatafromNetwork(data: [String : Any]) -> Observable<UserModel> {
-      return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
-        
+        return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
     }
+    
+    func getUserDataFromCache() -> Observable<[UserCache]> {
+        let res = CoreDataStorage.shared.fetch(for: UserCache.self)
+        return Observable.of(res)
+    }
+    
+    
+     func saveUserToCache(for:String,data:UserModel){
+         let res = data.addUserToCacheStore()
+         print(res)
+
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print(paths[0])
+       
+    }
+    
+   
     
     
     //    func getUserLogedInDatafromNetwork(data:[String:Any]) -> Observable<UserModel> {

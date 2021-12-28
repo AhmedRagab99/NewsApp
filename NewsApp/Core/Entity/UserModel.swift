@@ -17,18 +17,42 @@ import Foundation
 struct UserModel: Codable {
     let user: User?
     let token: String?
+    
+    static let storage = CoreDataStorage.shared
+    
+    
+    func addUserToCacheStore(){
+        
+        guard let userCacheModel = UserModel.storage.add(UserCache.self)  else {return}
+        
+        userCacheModel.id = user?.id ?? ""
+        userCacheModel.name = user?.name ?? ""
+        userCacheModel.email = user?.email ?? ""
+        userCacheModel.createdAt = user?.createdAt ??   ""
+        
+        userCacheModel.token =  token ?? ""
+        print(userCacheModel)
+        
+        
+             UserModel.storage.save()
+      
+        
+        
+    }
 }
 
 // MARK: - User
 struct User: Codable {
-    let id, name, email, password: String?
+    let id, name, email : String?
     let createdAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case name, email, password
+        case name, email
         case createdAt = "created_at"
     }
+    
+    
 }
 
 

@@ -45,6 +45,9 @@ class LoginViewController: UIViewController {
         
         self.submitButton.rx.tap.subscribe{_ in self.loginViewModel.TapOnSubmitButton()}.disposed(by: disposeBag)
         
+        
+//        print(CoreDataStorage.shared.fetchData(entityName: Entites.User.rawValue))
+        
     }
     
     

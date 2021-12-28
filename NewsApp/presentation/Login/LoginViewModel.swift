@@ -39,7 +39,8 @@ class LoginViewModel{
         loading.onNext(true)
         print(getlastEmailText())
 
-        loginUseCase.getUserData(storeType: .network, userData: ["email":getlastEmailText(),"password":getlastPasswordText()]).subscribe {[weak self] user in
+        loginUseCase.getUserData(storeType: .network, userData: ["email":getlastEmailText(),"password":getlastPasswordText()]
+        ).subscribe {[weak self] user in
             print(user)
             self?.loading.onNext(false)
             
@@ -50,6 +51,10 @@ class LoginViewModel{
             self.loading.onNext(false)
             print("completed")
         }.disposed(by: disposeBag)
+    }
+    
+    func getData(){
+        self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
     }
     
     func getlastEmailText()->String{
@@ -83,7 +88,7 @@ class LoginViewModel{
             .drive{[weak self ] _ in
                 guard let self = self else { return }
                 
-                self.getUserData()
+                self.getData()
                 
             }
     }

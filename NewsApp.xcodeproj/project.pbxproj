@@ -25,7 +25,6 @@
 		D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43AE27744F8400D840B5 /* UsersApi.swift */; };
 		D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B127745B2100D840B5 /* NewsNetworking.swift */; };
 		D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B327745D7A00D840B5 /* NewsApi.swift */; };
-		D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B627745F3A00D840B5 /* MovieModel.swift */; };
 		D0EC43B927746E4E00D840B5 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B827746E4E00D840B5 /* UserNetworking.swift */; };
 		D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43BA277470A700D840B5 /* UserModel.swift */; };
 		D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43C02774771200D840B5 /* NewsModel.swift */; };
@@ -33,10 +32,12 @@
 		D0EC43D527747DA000D840B5 /* StupGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43D427747DA000D840B5 /* StupGenerator.swift */; };
 		D0EC43D927747FA800D840B5 /* UserApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43D827747FA800D840B5 /* UserApiTest.swift */; };
 		D0EC43DB2774805700D840B5 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DA2774805700D840B5 /* BaseApi.swift */; };
-		D0EC43DE2774931100D840B5 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DD2774931100D840B5 /* ApiServices.swift */; };
 		D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DF2774946800D840B5 /* loginRepo.swift */; };
 		D0EC43E427749FFD00D840B5 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */; };
 		D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E62774A57600D840B5 /* LoginViewModel.swift */; };
+		D0EC43EA2779989C00D840B5 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E82779989C00D840B5 /* User.xcdatamodeld */; };
+		D0EC43ED2779A33900D840B5 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EC2779A33900D840B5 /* UserCache.swift */; };
+		D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,6 @@
 		D0EC43AE27744F8400D840B5 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		D0EC43B127745B2100D840B5 /* NewsNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworking.swift; sourceTree = "<group>"; };
 		D0EC43B327745D7A00D840B5 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
-		D0EC43B627745F3A00D840B5 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		D0EC43B827746E4E00D840B5 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		D0EC43BA277470A700D840B5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D0EC43C02774771200D840B5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -83,10 +83,12 @@
 		D0EC43D427747DA000D840B5 /* StupGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StupGenerator.swift; sourceTree = "<group>"; };
 		D0EC43D827747FA800D840B5 /* UserApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiTest.swift; sourceTree = "<group>"; };
 		D0EC43DA2774805700D840B5 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
-		D0EC43DD2774931100D840B5 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		D0EC43DF2774946800D840B5 /* loginRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRepo.swift; sourceTree = "<group>"; };
 		D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		D0EC43E62774A57600D840B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D0EC43E92779989C00D840B5 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		D0EC43EC2779A33900D840B5 /* UserCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
+		D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +211,6 @@
 				D0EC43AD27744F7900D840B5 /* Users */,
 				D0EC43A9277359CB00D840B5 /* TargetType.swift */,
 				D0EC43AB277359FE00D840B5 /* BaseApi.swift */,
-				D0EC43DD2774931100D840B5 /* ApiServices.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -217,6 +218,9 @@
 		D0EC43A82773559600D840B5 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				D0EC43EB2779A32A00D840B5 /* Models */,
+				D0EC43E82779989C00D840B5 /* User.xcdatamodeld */,
+				D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -240,7 +244,6 @@
 		D0EC43B527745F2C00D840B5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				D0EC43B627745F3A00D840B5 /* MovieModel.swift */,
 				D0EC43BA277470A700D840B5 /* UserModel.swift */,
 				D0EC43C02774771200D840B5 /* NewsModel.swift */,
 			);
@@ -288,6 +291,14 @@
 				D0EC43E62774A57600D840B5 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D0EC43EB2779A32A00D840B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC43EC2779A33900D840B5 /* UserCache.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,14 +450,15 @@
 				D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */,
 				D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */,
 				D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */,
-				D0EC43B727745F3A00D840B5 /* MovieModel.swift in Sources */,
 				D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */,
+				D0EC43EA2779989C00D840B5 /* User.xcdatamodeld in Sources */,
 				D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */,
-				D0EC43DE2774931100D840B5 /* ApiServices.swift in Sources */,
 				D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */,
 				D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */,
+				D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */,
 				D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */,
 				D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */,
+				D0EC43ED2779A33900D840B5 /* UserCache.swift in Sources */,
 				D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */,
 				D0EC43E427749FFD00D840B5 /* LoginUseCase.swift in Sources */,
 			);
@@ -849,6 +861,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D0EC43E82779989C00D840B5 /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0EC43E92779989C00D840B5 /* User.xcdatamodel */,
+			);
+			currentVersion = D0EC43E92779989C00D840B5 /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D0EC435B2773462800D840B5 /* Project object */;
 }
