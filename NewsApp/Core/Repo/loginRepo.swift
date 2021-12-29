@@ -21,20 +21,22 @@ class LogInUserRepo:LogInUserRepoProtocol{
     }
     
     func getUserDataFromCache() -> Observable<[UserCache]> {
-        let res = CoreDataStorage.shared.fetch(for: UserCache.self)
-        return Observable.of(res)
+//        let res = CoreDataStorage.shared.fetch(for: UserCache.self)
+        let res = CoreDataManager.shared.fetchUsers()
+        print(res)
+        return Observable.of(res!)
     }
     
-    
-     func saveUserToCache(for:String,data:UserModel){
-         let res = data.addUserToCacheStore()
-         print(res)
-
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(paths[0])
-       
-    }
+//
+//     func saveUserToCache(for:String,data:UserModel){
+//         data.addUserToCacheStore(data: data)
+////         print(res)
+//
+//         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+//        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+//        print(paths[0])
+//
+//    }
     
    
     

@@ -19,6 +19,9 @@ protocol LoginUseCaseProtocol{
     func getUserData(storeType:storeType,userData:[String:Any])->Observable<UserModel>
     
     func observerOnUserData(userData:[String:Any])->UserModel?
+    
+    func observeOnUserDataFromCache()->UserModel?
+    
 }
 
 class LoginUseCase:LoginUseCaseProtocol{
@@ -37,8 +40,12 @@ class LoginUseCase:LoginUseCaseProtocol{
         var tempUser:UserModel?
         self.getUserData(storeType: .network, userData: userData)
             .subscribe { user  in
+                
 //                self.userRepo.saveUserToCache(for: "UserCache", data: user)
+                let res = CoreDataManager.shared.CreateUser(user: user)
+                print("From Core Data with name \(res?.name)")
                 print(user.user?.name)
+                
                 tempUser = user
             } onError: { error in
                 print(error.localizedDescription)
@@ -49,6 +56,23 @@ class LoginUseCase:LoginUseCaseProtocol{
         return tempUser
     }
     
+    func observeOnUserDataFromCache()->UserModel?{
+        var tempUser:UserModel?
+        self.getUserData(storeType: .cache, userData: ["":""])
+            .subscribe { user in
+                print("User fetched from core data \(user)")
+                tempUser = user
+            } onError: { error in
+                print(error.localizedDescription)
+            } onCompleted: {
+                print("Completed")
+            }.disposed(by: disposeBag)
+        
+        return tempUser
+
+    }
+    
+ 
     func getUserData(storeType: storeType,userData:[String:Any]) -> Observable<UserModel> {
         switch storeType{
         case .network:
@@ -57,13 +81,16 @@ class LoginUseCase:LoginUseCaseProtocol{
             return self.userRepo.getUserLogedInDatafromNetwork(data: userData)
             
         case .cache:
-            return self.userRepo.getUserDataFromCache().map{ user in self.convretUserCacheModel(user: user[0])}
+            return self.userRepo.getUserDataFromCache().map{ user in
+//                let res = CoreDataManager.shared.fetchEmployee(withName: "ahmedasd")
+                return  self.convretUserCacheModel(user: user[0])}
 //            returnz (self.userRepo.getUserLogedInDatafromNetwork(data: userData))
         }
     }
     
     
     func convretUserCacheModel(user:UserCache)->UserModel{
+        
         return UserModel(user: User(id: user.id, name:user.name,email: user.email,createdAt: user.createdAt), token: user.token)
     }
     

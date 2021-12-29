@@ -21,9 +21,17 @@ struct UserModel: Codable {
     static let storage = CoreDataStorage.shared
     
     
-    func addUserToCacheStore(){
+    func addUserToCacheStore(data:UserModel){
+
+        guard let userCacheModel =
+                CoreDataStorage.shared.add(UserCache.self)  else {
+            print("user cannot geet the model")
+            return
+            
+            
+        }
         
-        guard let userCacheModel = UserModel.storage.add(UserCache.self)  else {return}
+        
         
         userCacheModel.id = user?.id ?? ""
         userCacheModel.name = user?.name ?? ""

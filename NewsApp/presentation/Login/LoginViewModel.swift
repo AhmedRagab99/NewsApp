@@ -54,7 +54,11 @@ class LoginViewModel{
     }
     
     func getData(){
-        self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+//        self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+        self.loginUseCase.observeOnUserDataFromCache()
+        
+//        observeOnUserDataFromCache
+//        self.loginUseCase.
     }
     
     func getlastEmailText()->String{

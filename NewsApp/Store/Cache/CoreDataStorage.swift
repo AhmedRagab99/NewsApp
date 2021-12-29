@@ -6,145 +6,118 @@
 //
 
 import Foundation
+
 import CoreData
 
-
-
-
-
-enum Entites:String{
-    case User = "UserCache"
-    case News = "NewsCahe"
-}
-
-
-
-protocol CoreDataStorageProtocol{
-    func saveContext ()
+struct CoreDataManager {
     
+    static let shared = CoreDataManager()
     
-}
-
-class CoreDataStorage:NSObject{
-    
-    
-    static let shared = CoreDataStorage()
-    
-    
-    // MARK: - Core Data stack
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        let container = NSPersistentContainer(name: "User")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+    let persistentContainer: NSPersistentContainer = {
+        
+        let container = NSPersistentContainer(name: "NewsApp")
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                fatalError("Loading of store failed \(error)")
             }
-        })
+        }
+        
         return container
     }()
     
-    
-    
-    
-    
-    
-    
-    // MARK: - Core Data Saving support
-    
-    func saveContext () {
+    @discardableResult
+    func CreateUser(user:UserModel) -> UserCache? {
         let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+        
+        // old way
+        // let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee // NSManagedObject
+        
+        // new way
+        //        let employee = Employee(context: context)
+        let userCache = UserCache(context: context)
+        
+        userCache.name = user.user?.name ?? ""
+        userCache.email = user.user?.email ?? ""
+        userCache.token = user.token ?? ""
+        userCache.createdAt = user.user?.createdAt ?? ""
+        userCache.id = user.user?.id ?? ""
+        
+        
+        
+        do {
+            try context.save()
+            return userCache
+        } catch let error {
+            print("Failed to create: \(error)")
         }
+        
+        return nil
     }
     
-    
-    // MARK: - Core Data Base Functions
-    
-    
-    
-    func managedObjectContext() -> NSManagedObjectContext {
-        return persistentContainer.viewContext
+    func fetchUsers() -> [UserCache]? {
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<UserCache>(entityName: "UserCache")
+        
+        do {
+            let userCache = try context.fetch(fetchRequest)
+            return userCache
+        } catch let error {
+            print("Failed to fetch companies: \(error)")
+        }
+        
+        return nil
     }
     
-    
-    
-    
-    func save(){
-        do
-        {
-            try managedObjectContext().save()
+    func fetchUser(withName name: String) -> UserCache? {
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<UserCache>(entityName: "UserCache")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            let userCache = try context.fetch(fetchRequest)
+            return userCache.first
+        } catch let error {
+            print("Failed to fetch: \(error)")
         }
-        catch
-        {
+        
+        return nil
+    }
+    
+    func deleteUser(user:UserCache)->Bool{
+        let context = persistentContainer.viewContext
+        do {
+            try context.delete(user)
+            return true
+        } catch let error {
             print(error.localizedDescription)
+            return false
         }
     }
     
+    //    func updateEmployee(employee: Employee) {
+    //        let context = persistentContainer.viewContext
+    //
+    //        do {
+    //            try context.save()
+    //        } catch let error {
+    //            print("Failed to update: \(error)")
+    //        }
+    //    }
     
-    func add<T:NSManagedObject>(_ type:T.Type)->T?{
-        guard let entityName = T.entity().name else {return nil}
-        guard let entity = NSEntityDescription.entity( forEntityName: entityName, in: managedObjectContext()) else {return nil}
-        let newObject = T(entity: entity, insertInto: managedObjectContext())
-        return newObject
-    }
-    
-    
-    
-    func fetch<T:NSManagedObject>(for type:T.Type)->[T]{
-        guard let entity = T.entity().name else {return []}
-        let request = NSFetchRequest<NSManagedObject>(entityName: entity)
-        let context = managedObjectContext()
-        
-        
-        do {
-            let objectResult =  try context.fetch(request)
-            print("Result of Fetching from CoreData is \(objectResult.debugDescription)")
-            
-            return objectResult as! [T]
-        } catch  {
-            print("Fetch failed..")
-            return []
-        }
-    }
-    
-    
-    func fetchData(entityName: String) -> [NSManagedObject] {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        let context = managedObjectContext()
-        do {
-            let result = try context.fetch(fetchRequest)
-            print("Result of Fetching from CoreData is \(result.debugDescription)")
-            return result
-        } catch {
-            print("Fetch failed..")
-            return []
-        }
-        
-    }
+    //    func deleteEmployee(user: UserModel) {
+    //        let context = persistentContainer.viewContext
+    //        context.delete(employee)
+    //
+    //        do {
+    //            try context.save()
+    //        } catch let error {
+    //            print("Failed to delete: \(error)")
+    //        }
+    //    }
     
 }
+
+

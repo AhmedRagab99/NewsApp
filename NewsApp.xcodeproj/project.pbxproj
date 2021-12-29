@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0BC5829277B2A8D00979F2B /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BC5827277B2A8D00979F2B /* NewsApp.xcdatamodeld */; };
 		D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43662773462800D840B5 /* AppDelegate.swift */; };
 		D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43682773462800D840B5 /* SceneDelegate.swift */; };
 		D0EC436B2773462800D840B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC436A2773462800D840B5 /* LoginViewController.swift */; };
@@ -35,7 +36,6 @@
 		D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DF2774946800D840B5 /* loginRepo.swift */; };
 		D0EC43E427749FFD00D840B5 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */; };
 		D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E62774A57600D840B5 /* LoginViewModel.swift */; };
-		D0EC43EA2779989C00D840B5 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E82779989C00D840B5 /* User.xcdatamodeld */; };
 		D0EC43ED2779A33900D840B5 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EC2779A33900D840B5 /* UserCache.swift */; };
 		D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0BC5828277B2A8D00979F2B /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
 		D0EC43632773462800D840B5 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EC43662773462800D840B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0EC43682773462800D840B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		D0EC43DF2774946800D840B5 /* loginRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRepo.swift; sourceTree = "<group>"; };
 		D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		D0EC43E62774A57600D840B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		D0EC43E92779989C00D840B5 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		D0EC43EC2779A33900D840B5 /* UserCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
 		D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				D0EC43EB2779A32A00D840B5 /* Models */,
-				D0EC43E82779989C00D840B5 /* User.xcdatamodeld */,
 				D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */,
+				D0BC5827277B2A8D00979F2B /* NewsApp.xcdatamodeld */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -448,10 +448,10 @@
 				D0EC43B927746E4E00D840B5 /* UserNetworking.swift in Sources */,
 				D0EC436B2773462800D840B5 /* LoginViewController.swift in Sources */,
 				D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */,
+				D0BC5829277B2A8D00979F2B /* NewsApp.xcdatamodeld in Sources */,
 				D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */,
 				D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */,
 				D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */,
-				D0EC43EA2779989C00D840B5 /* User.xcdatamodeld in Sources */,
 				D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */,
 				D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */,
 				D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */,
@@ -863,13 +863,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		D0EC43E82779989C00D840B5 /* User.xcdatamodeld */ = {
+		D0BC5827277B2A8D00979F2B /* NewsApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D0EC43E92779989C00D840B5 /* User.xcdatamodel */,
+				D0BC5828277B2A8D00979F2B /* NewsApp.xcdatamodel */,
 			);
-			currentVersion = D0EC43E92779989C00D840B5 /* User.xcdatamodel */;
-			path = User.xcdatamodeld;
+			currentVersion = D0BC5828277B2A8D00979F2B /* NewsApp.xcdatamodel */;
+			path = NewsApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
