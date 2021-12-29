@@ -10,7 +10,7 @@ import RxSwift
 
 protocol LogInUserRepoProtocol{
     func getUserLogedInDatafromNetwork(data:[String:Any])->Observable<UserModel>
-    func getUserDataFromCache()->Observable<[UserCache]>
+    func getUserDataFromCache()->Observable<UserCache?>
     
 }
 
@@ -20,11 +20,11 @@ class LogInUserRepo:LogInUserRepoProtocol{
         return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
     }
     
-    func getUserDataFromCache() -> Observable<[UserCache]> {
+    func getUserDataFromCache() -> Observable<UserCache?> {
 //        let res = CoreDataStorage.shared.fetch(for: UserCache.self)
-        let res = CoreDataManager.shared.fetchUsers()
+        let res = CoreDataManager.shared.fetchUser()
         print(res)
-        return Observable.of(res!)
+        return Observable.of(res)
     }
     
 //

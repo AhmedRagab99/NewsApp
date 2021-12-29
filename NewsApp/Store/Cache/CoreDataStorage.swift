@@ -34,6 +34,7 @@ struct CoreDataManager {
         
         // new way
         //        let employee = Employee(context: context)
+        
         let userCache = UserCache(context: context)
         
         userCache.name = user.user?.name ?? ""
@@ -54,14 +55,27 @@ struct CoreDataManager {
         return nil
     }
     
-    func fetchUsers() -> [UserCache]? {
+    func fetchUser() -> UserCache? {
         let context = persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<UserCache>(entityName: "UserCache")
         
         do {
-            let userCache = try context.fetch(fetchRequest)
-            return userCache
+            var userCache = try context.fetch(fetchRequest)
+            
+//            print("before delete \(userCache.count)")
+//
+//            let names = ["Jim", "Jenny", "Earl"]
+//
+//            for i in userCache.indices.dropLast() {
+//                deleteUser(user: userCache[i])
+//            }
+//
+//            print("after delete \(userCache.count)")
+      
+
+            return userCache.last
+            
         } catch let error {
             print("Failed to fetch companies: \(error)")
         }
@@ -86,14 +100,16 @@ struct CoreDataManager {
         return nil
     }
     
-    func deleteUser(user:UserCache)->Bool{
+    func deleteUser(user:UserCache){
         let context = persistentContainer.viewContext
+        context.delete(user)
         do {
-            try context.delete(user)
-            return true
+            try context.save()
+
+            
         } catch let error {
             print(error.localizedDescription)
-            return false
+            
         }
     }
     

@@ -28,7 +28,6 @@ class UserApi:BaseApi<UserNetworking>,UserApiProtocol{
         let result = self.fetchData(target: .logIn(email: email, password: password), responceClass:UserModel.self)
         print(result.asObservable().subscribe(onNext: { user in
             print(user)
-            user.addUserToCacheStore(data: user)
         },onError: { error in
             print(error)
         }).disposed(by: DisposeBag()))

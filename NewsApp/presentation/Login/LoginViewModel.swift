@@ -10,7 +10,7 @@ import RxSwift
 
 class LoginViewModel{
     //MARK: PROPERTIES
-
+    
     var loginUseCase:LoginUseCaseProtocol
     let disposeBag = DisposeBag()
     
@@ -24,7 +24,7 @@ class LoginViewModel{
     var errorSubject:PublishSubject<String> = PublishSubject()
     
     var isValid:Observable<Bool>{
-      ValidInputs()
+        ValidInputs()
     }
     
     
@@ -32,13 +32,13 @@ class LoginViewModel{
     init(loginUseCase:LoginUseCaseProtocol = LoginUseCase()) {
         self.loginUseCase = loginUseCase
         
-
+        
     }
     
     func getUserData(){
         loading.onNext(true)
         print(getlastEmailText())
-
+        
         loginUseCase.getUserData(storeType: .network, userData: ["email":getlastEmailText(),"password":getlastPasswordText()]
         ).subscribe {[weak self] user in
             print(user)
@@ -53,13 +53,15 @@ class LoginViewModel{
         }.disposed(by: disposeBag)
     }
     
-    func getData(){
-//        self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
-        self.loginUseCase.observeOnUserDataFromCache()
-        
-//        observeOnUserDataFromCache
-//        self.loginUseCase.
+        func getData(){
+            self.loginUseCase.observeOnUserDataFromCache()
+        }
+    
+    func getDataFromNetwork(){
+                self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+
     }
+    
     
     func getlastEmailText()->String{
         var res = ""
@@ -92,7 +94,7 @@ class LoginViewModel{
             .drive{[weak self ] _ in
                 guard let self = self else { return }
                 
-                self.getData()
+                self.getDataFromNetwork()
                 
             }
     }
@@ -114,5 +116,5 @@ class LoginViewModel{
             return email && password
         }
     }
-
+    
 }

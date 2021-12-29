@@ -42,12 +42,11 @@ class LoginViewController: UIViewController {
         self.loginViewModel =  LoginViewModel()
         bindViews()
         activateSubmitButton()
-        
+
+        self.loginViewModel.getData()
+    
         self.submitButton.rx.tap.subscribe{_ in self.loginViewModel.TapOnSubmitButton()}.disposed(by: disposeBag)
-        
-        
-//        print(CoreDataStorage.shared.fetchData(entityName: Entites.User.rawValue))
-        
+    
     }
     
     
@@ -59,10 +58,7 @@ class LoginViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    
-    
-    
-    
+  
     func bindViews(){
         
         emailTextField.rx.text.map{$0 ?? ""}.bind(to:loginViewModel.emailText).disposed(by: disposeBag)

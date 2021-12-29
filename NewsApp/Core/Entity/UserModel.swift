@@ -17,36 +17,7 @@ import Foundation
 struct UserModel: Codable {
     let user: User?
     let token: String?
-    
-    static let storage = CoreDataStorage.shared
-    
-    
-    func addUserToCacheStore(data:UserModel){
 
-        guard let userCacheModel =
-                CoreDataStorage.shared.add(UserCache.self)  else {
-            print("user cannot geet the model")
-            return
-            
-            
-        }
-        
-        
-        
-        userCacheModel.id = user?.id ?? ""
-        userCacheModel.name = user?.name ?? ""
-        userCacheModel.email = user?.email ?? ""
-        userCacheModel.createdAt = user?.createdAt ??   ""
-        
-        userCacheModel.token =  token ?? ""
-        print(userCacheModel)
-        
-        
-             UserModel.storage.save()
-      
-        
-        
-    }
 }
 
 // MARK: - User
