@@ -10,8 +10,8 @@ import Foundation
 
 
 class StubGenerator {
-    func stubUsers() ->UserModel {
-        let path = Bundle.main.path(forResource: "UserStup", ofType: "json")!
+   static func stubUsers() ->UserModel {
+        let path = Bundle.main.path(forResource: "stup", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let decoder = JSONDecoder()
 //        decoder.dateDecodingStrategy = .iso8601
@@ -19,7 +19,6 @@ class StubGenerator {
         return user
     }
     
-//    func stupUser()->UserModel{
-//
-//    }
 }
+
+

@@ -26,7 +26,11 @@ class BaseApi<T: TargetType> {
             print("insidee observer")
             
             
-            self.fireApiRequest(target: target, responceClass: responceClass, params: params, headers: headers) { completion in
+//            self.fireApiRequest(T, responceClass: responceClass, params: params, headers: headers)
+            
+            
+            self.fireApiRequest(path: target.baseUrl+target.path, method: target.method.rawValue, responceClass: responceClass, params: params, headers: headers)
+            { completion in
                 switch completion{
                 case .failure(let error):
                     return observer.onError(error)
@@ -44,9 +48,9 @@ class BaseApi<T: TargetType> {
     
     
     
-    fileprivate func fireApiRequest<M:Decodable>(target:T,responceClass:M.Type,params:([String: Any], ParameterEncoding),headers:HTTPHeaders,completion:@escaping(Result<M?,ApiError>)->Void){
+    func fireApiRequest<M:Decodable>(path:String,method:String,responceClass:M.Type,params:([String: Any], ParameterEncoding),headers:HTTPHeaders,completion:@escaping(Result<M?,ApiError>)->Void){
         
-        AF.request(target.baseUrl + target.path, method: Alamofire.HTTPMethod(rawValue:target.method.rawValue), parameters:params.0, encoding: params.1, headers: headers)
+        AF.request(path, method: Alamofire.HTTPMethod(rawValue:method), parameters:params.0, encoding: params.1, headers: headers)
             .responseData { responce in
                 switch responce.result{
                 case .success:
@@ -78,7 +82,7 @@ class BaseApi<T: TargetType> {
         
     }
     
-    fileprivate func buildParams(task: Task) -> paramsReturnType {
+     func buildParams(task: Task) -> paramsReturnType {
         switch task {
         case .requestPlain:
             return ([:], URLEncoding.default)

@@ -9,25 +9,60 @@ import Foundation
 
 import CoreData
 
-struct CoreDataManager {
+class CoreDataMangerStack{
+    static let shared = CoreDataMangerStack()
     
-    static let shared = CoreDataManager()
+    let persistentContainer: NSPersistentContainer
+    let backgroundContext: NSManagedObjectContext
+    let mainContext: NSManagedObjectContext
     
-    let persistentContainer: NSPersistentContainer = {
+    
+    
+    private init() {
+        persistentContainer = NSPersistentContainer(name: "NewsApp")
+        let description = persistentContainer.persistentStoreDescriptions.first
+        description?.type = NSSQLiteStoreType
         
-        let container = NSPersistentContainer(name: "NewsApp")
-        container.loadPersistentStores { (storeDescription, error) in
-            if let error = error {
-                fatalError("Loading of store failed \(error)")
+        persistentContainer.loadPersistentStores { description, error in
+            guard error == nil else {
+                fatalError("was unable to load store \(error!)")
             }
         }
+        mainContext = persistentContainer.viewContext
         
-        return container
-    }()
+        backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        backgroundContext.parent = self.mainContext
+        
+    }
+    
+}
+
+struct UserCoreDataStorage {
+    
+    static let shared = UserCoreDataStorage()
+//
+//    let persistentContainer: NSPersistentContainer = {
+//
+//        let container = NSPersistentContainer(name: "NewsApp")
+//        container.loadPersistentStores { (storeDescription, error) in
+//            if let error = error {
+//                fatalError("Loading of store failed \(error)")
+//            }
+//        }
+//
+//        return container
+//    }()
+    
+    let mainContext: NSManagedObjectContext
+
+    init(mainContext: NSManagedObjectContext = CoreDataMangerStack.shared.mainContext) {
+           self.mainContext = mainContext
+       }
     
     @discardableResult
     func CreateUser(user:UserModel) -> UserCache? {
-        let context = persistentContainer.viewContext
+//        let context = persistentContainer.viewContext
         
         // old way
         // let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee // NSManagedObject
@@ -35,7 +70,7 @@ struct CoreDataManager {
         // new way
         //        let employee = Employee(context: context)
         
-        let userCache = UserCache(context: context)
+        let userCache = UserCache(context: mainContext)
         
         userCache.name = user.user?.name ?? ""
         userCache.email = user.user?.email ?? ""
@@ -46,7 +81,7 @@ struct CoreDataManager {
         
         
         do {
-            try context.save()
+            try mainContext.save()
             return userCache
         } catch let error {
             print("Failed to create: \(error)")
@@ -55,26 +90,26 @@ struct CoreDataManager {
         return nil
     }
     
-    func fetchUser() -> UserCache? {
-        let context = persistentContainer.viewContext
+    func fetchUser() -> [UserCache]? {
+        
         
         let fetchRequest = NSFetchRequest<UserCache>(entityName: "UserCache")
         
         do {
-            var userCache = try context.fetch(fetchRequest)
+            var userCache = try mainContext.fetch(fetchRequest)
             
-//            print("before delete \(userCache.count)")
-//
-//            let names = ["Jim", "Jenny", "Earl"]
-//
-//            for i in userCache.indices.dropLast() {
-//                deleteUser(user: userCache[i])
-//            }
-//
-//            print("after delete \(userCache.count)")
-      
-
-            return userCache.last
+            //            print("before delete \(userCache.count)")
+            //
+            //            let names = ["Jim", "Jenny", "Earl"]
+            //
+            //            for i in userCache.indices.dropLast() {
+            //                deleteUser(user: userCache[i])
+            //            }
+            //
+            //            print("after delete \(userCache.count)")
+            
+            
+            return userCache
             
         } catch let error {
             print("Failed to fetch companies: \(error)")
@@ -84,14 +119,14 @@ struct CoreDataManager {
     }
     
     func fetchUser(withName name: String) -> UserCache? {
-        let context = persistentContainer.viewContext
+//        let context = persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<UserCache>(entityName: "UserCache")
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
         do {
-            let userCache = try context.fetch(fetchRequest)
+            let userCache = try mainContext.fetch(fetchRequest)
             return userCache.first
         } catch let error {
             print("Failed to fetch: \(error)")
@@ -101,38 +136,18 @@ struct CoreDataManager {
     }
     
     func deleteUser(user:UserCache){
-        let context = persistentContainer.viewContext
-        context.delete(user)
+//        let context = persistentContainer.viewContext
+            mainContext.delete(user)
+        
+        
         do {
-            try context.save()
-
-            
+            try mainContext.save()
         } catch let error {
             print(error.localizedDescription)
             
         }
     }
-    
-    //    func updateEmployee(employee: Employee) {
-    //        let context = persistentContainer.viewContext
-    //
-    //        do {
-    //            try context.save()
-    //        } catch let error {
-    //            print("Failed to update: \(error)")
-    //        }
-    //    }
-    
-    //    func deleteEmployee(user: UserModel) {
-    //        let context = persistentContainer.viewContext
-    //        context.delete(employee)
-    //
-    //        do {
-    //            try context.save()
-    //        } catch let error {
-    //            print("Failed to delete: \(error)")
-    //        }
-    //    }
+  
     
 }
 

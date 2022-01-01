@@ -27,12 +27,12 @@ protocol LoginUseCaseProtocol{
 class LoginUseCase:LoginUseCaseProtocol{
     
     var userRepo:LogInUserRepo
-    let disposeBag:DisposeBag
+    let disposeBag:DisposeBag = DisposeBag()
     
     
     init(userRepo:LogInUserRepo = LogInUserRepo()) {
         self.userRepo = userRepo
-        self.disposeBag = DisposeBag()
+        
     }
     
     
@@ -43,11 +43,11 @@ class LoginUseCase:LoginUseCaseProtocol{
         self.getUserData(storeType: .network, userData: userData)
             .subscribe { user  in
                 if user.user?.name != ""{
-                 
-                
-                let res = CoreDataManager.shared.CreateUser(user: user)
-                print("From Core Data with name \(res?.name)")
-                print(user.user?.name)
+                    
+                    
+                    let res = UserCoreDataStorage.shared.CreateUser(user: user)
+                    print("From Core Data with name \(res?.name)")
+                    print(user.user?.name)
                 }
                 
                 tempUser = user

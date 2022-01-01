@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D0BC5829277B2A8D00979F2B /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BC5827277B2A8D00979F2B /* NewsApp.xcdatamodeld */; };
+		D0BC582D27804D8900979F2B /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC582C27804D8900979F2B /* LoginCoordinator.swift */; };
+		D0BC583027804E0700979F2B /* HomeNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC582F27804E0700979F2B /* HomeNewsVC.swift */; };
+		D0BC58322780565600979F2B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC58312780565600979F2B /* MainCoordinator.swift */; };
+		D0BC583627807BB700979F2B /* BaseApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583527807BB700979F2B /* BaseApiTest.swift */; };
+		D0BC58382780859600979F2B /* stup.json in Resources */ = {isa = PBXBuildFile; fileRef = D0EC43CF27747A3200D840B5 /* stup.json */; };
+		D0BC583A27808CAE00979F2B /* LoginUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */; };
+		D0BC583C27808CEC00979F2B /* LoginRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */; };
+		D0BC583E2780923200979F2B /* CoreDataStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583D2780923200979F2B /* CoreDataStorageTest.swift */; };
+		D0BC5840278093E500979F2B /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583F278093E500979F2B /* CoreDataTestStack.swift */; };
 		D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43662773462800D840B5 /* AppDelegate.swift */; };
 		D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43682773462800D840B5 /* SceneDelegate.swift */; };
 		D0EC436B2773462800D840B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC436A2773462800D840B5 /* LoginViewController.swift */; };
@@ -29,10 +38,8 @@
 		D0EC43B927746E4E00D840B5 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43B827746E4E00D840B5 /* UserNetworking.swift */; };
 		D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43BA277470A700D840B5 /* UserModel.swift */; };
 		D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43C02774771200D840B5 /* NewsModel.swift */; };
-		D0EC43D027747A3200D840B5 /* UserStup.json in Resources */ = {isa = PBXBuildFile; fileRef = D0EC43CF27747A3200D840B5 /* UserStup.json */; };
+		D0EC43D027747A3200D840B5 /* stup.json in Resources */ = {isa = PBXBuildFile; fileRef = D0EC43CF27747A3200D840B5 /* stup.json */; };
 		D0EC43D527747DA000D840B5 /* StupGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43D427747DA000D840B5 /* StupGenerator.swift */; };
-		D0EC43D927747FA800D840B5 /* UserApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43D827747FA800D840B5 /* UserApiTest.swift */; };
-		D0EC43DB2774805700D840B5 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DA2774805700D840B5 /* BaseApi.swift */; };
 		D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43DF2774946800D840B5 /* loginRepo.swift */; };
 		D0EC43E427749FFD00D840B5 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */; };
 		D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E62774A57600D840B5 /* LoginViewModel.swift */; };
@@ -59,6 +66,14 @@
 
 /* Begin PBXFileReference section */
 		D0BC5828277B2A8D00979F2B /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
+		D0BC582C27804D8900979F2B /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D0BC582F27804E0700979F2B /* HomeNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsVC.swift; sourceTree = "<group>"; };
+		D0BC58312780565600979F2B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		D0BC583527807BB700979F2B /* BaseApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiTest.swift; sourceTree = "<group>"; };
+		D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTest.swift; sourceTree = "<group>"; };
+		D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepoMock.swift; sourceTree = "<group>"; };
+		D0BC583D2780923200979F2B /* CoreDataStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTest.swift; sourceTree = "<group>"; };
+		D0BC583F278093E500979F2B /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
 		D0EC43632773462800D840B5 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EC43662773462800D840B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0EC43682773462800D840B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,10 +95,8 @@
 		D0EC43B827746E4E00D840B5 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		D0EC43BA277470A700D840B5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D0EC43C02774771200D840B5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		D0EC43CF27747A3200D840B5 /* UserStup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserStup.json; sourceTree = "<group>"; };
+		D0EC43CF27747A3200D840B5 /* stup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stup.json; sourceTree = "<group>"; };
 		D0EC43D427747DA000D840B5 /* StupGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StupGenerator.swift; sourceTree = "<group>"; };
-		D0EC43D827747FA800D840B5 /* UserApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiTest.swift; sourceTree = "<group>"; };
-		D0EC43DA2774805700D840B5 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		D0EC43DF2774946800D840B5 /* loginRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRepo.swift; sourceTree = "<group>"; };
 		D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		D0EC43E62774A57600D840B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +133,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0BC582E27804DDA00979F2B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC582F27804E0700979F2B /* HomeNewsVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D0BC583727807BE000979F2B /* Bundels+extentions+helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC583F278093E500979F2B /* CoreDataTestStack.swift */,
+				D0EC43D427747DA000D840B5 /* StupGenerator.swift */,
+			);
+			path = "Bundels+extentions+helpers";
+			sourceTree = "<group>";
+		};
 		D0EC435A2773462800D840B5 = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +180,6 @@
 				D0EC43682773462800D840B5 /* SceneDelegate.swift */,
 				D0EC436C2773462800D840B5 /* Main.storyboard */,
 				D0EC43722773462A00D840B5 /* Assets.xcassets */,
-				D0EC43CF27747A3200D840B5 /* UserStup.json */,
 				D0EC43742773462A00D840B5 /* LaunchScreen.storyboard */,
 				D0EC43772773462A00D840B5 /* Info.plist */,
 			);
@@ -160,9 +189,13 @@
 		D0EC437F2773462B00D840B5 /* NewsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D0EC43D127747AAF00D840B5 /* Api */,
+				D0EC43CF27747A3200D840B5 /* stup.json */,
+				D0BC583727807BE000979F2B /* Bundels+extentions+helpers */,
 				D0EC43802773462B00D840B5 /* NewsAppTests.swift */,
-				D0EC43D427747DA000D840B5 /* StupGenerator.swift */,
+				D0BC583527807BB700979F2B /* BaseApiTest.swift */,
+				D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */,
+				D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */,
+				D0BC583D2780923200979F2B /* CoreDataStorageTest.swift */,
 			);
 			path = NewsAppTests;
 			sourceTree = "<group>";
@@ -179,7 +212,9 @@
 		D0EC43A4277354AA00D840B5 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D0BC582E27804DDA00979F2B /* Home */,
 				D0EC43E52774A2BA00D840B5 /* Login */,
+				D0BC58312780565600979F2B /* MainCoordinator.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -250,15 +285,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		D0EC43D127747AAF00D840B5 /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				D0EC43D827747FA800D840B5 /* UserApiTest.swift */,
-				D0EC43DA2774805700D840B5 /* BaseApi.swift */,
-			);
-			path = Api;
-			sourceTree = "<group>";
-		};
 		D0EC43DC2774910100D840B5 /* Repo */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +315,7 @@
 			children = (
 				D0EC436A2773462800D840B5 /* LoginViewController.swift */,
 				D0EC43E62774A57600D840B5 /* LoginViewModel.swift */,
+				D0BC582C27804D8900979F2B /* LoginCoordinator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -416,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BC58382780859600979F2B /* stup.json in Resources */,
 				D0EC43762773462A00D840B5 /* LaunchScreen.storyboard in Resources */,
 				D0EC43732773462A00D840B5 /* Assets.xcassets in Resources */,
 				D0EC436E2773462800D840B5 /* Main.storyboard in Resources */,
@@ -426,7 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0EC43D027747A3200D840B5 /* UserStup.json in Resources */,
+				D0EC43D027747A3200D840B5 /* stup.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,11 +478,14 @@
 				D0EC43AF27744F8400D840B5 /* UsersApi.swift in Sources */,
 				D0BC5829277B2A8D00979F2B /* NewsApp.xcdatamodeld in Sources */,
 				D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */,
+				D0BC582D27804D8900979F2B /* LoginCoordinator.swift in Sources */,
 				D0EC43672773462800D840B5 /* AppDelegate.swift in Sources */,
 				D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */,
 				D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */,
+				D0BC583027804E0700979F2B /* HomeNewsVC.swift in Sources */,
 				D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */,
 				D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */,
+				D0BC58322780565600979F2B /* MainCoordinator.swift in Sources */,
 				D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */,
 				D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */,
 				D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */,
@@ -468,10 +499,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BC583627807BB700979F2B /* BaseApiTest.swift in Sources */,
 				D0EC43D527747DA000D840B5 /* StupGenerator.swift in Sources */,
-				D0EC43DB2774805700D840B5 /* BaseApi.swift in Sources */,
+				D0BC583C27808CEC00979F2B /* LoginRepoMock.swift in Sources */,
+				D0BC5840278093E500979F2B /* CoreDataTestStack.swift in Sources */,
 				D0EC43812773462B00D840B5 /* NewsAppTests.swift in Sources */,
-				D0EC43D927747FA800D840B5 /* UserApiTest.swift in Sources */,
+				D0BC583E2780923200979F2B /* CoreDataStorageTest.swift in Sources */,
+				D0BC583A27808CAE00979F2B /* LoginUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

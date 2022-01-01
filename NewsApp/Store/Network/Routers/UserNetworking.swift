@@ -31,7 +31,7 @@ extension UserNetworking:TargetType{
         }
     }
     
-    var method: HTTPMethod {
+    var method: HTTPMethodDefault {
         switch self{
         case .logIn,.register:
             return .post

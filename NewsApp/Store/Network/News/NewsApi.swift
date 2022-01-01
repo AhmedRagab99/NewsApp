@@ -16,13 +16,8 @@ protocol NewsApiProtocol{
 
 
 class NewsApi:BaseApi<NewsNetworking>,NewsApiProtocol{
-    
-    
-    
     static let shared = NewsApi()
     func getEverething(apiKey: String, q: String) -> Observable<NewsModel> {
         self.fetchData(target: .everything(apiKey: apiKey, q: q), responceClass: NewsModel.self)
     }
-    
-    
 }

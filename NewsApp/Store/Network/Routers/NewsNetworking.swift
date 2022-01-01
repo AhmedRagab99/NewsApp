@@ -27,7 +27,7 @@ extension NewsNetworking:TargetType{
         }
     }
     
-    var method: HTTPMethod {
+    var method: HTTPMethodDefault {
         switch self{
         case .everything:
             return .get

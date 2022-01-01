@@ -22,32 +22,10 @@ class LogInUserRepo:LogInUserRepoProtocol{
     
     func getUserDataFromCache() -> Observable<UserCache?> {
 //        let res = CoreDataStorage.shared.fetch(for: UserCache.self)
-        let res = CoreDataManager.shared.fetchUser()
+        let res = UserCoreDataStorage.shared.fetchUser()
         print(res)
-        return Observable.of(res)
+        return Observable.of(res?.last)
     }
     
-//
-//     func saveUserToCache(for:String,data:UserModel){
-//         data.addUserToCacheStore(data: data)
-////         print(res)
-//
-//         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-//        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-//        print(paths[0])
-//
-//    }
-    
-   
-    
-    
-    //    func getUserLogedInDatafromNetwork(data:[String:Any]) -> Observable<UserModel> {
-    //        return UserApi.shared.login(email:data["email"] as! String , password: data["password"] as! String)
-    //    }
-    //
-    //    func getUserDataFromCachee() -> Observable<UserModel> {
-    //        return
-    //    }
-    //
     
 }

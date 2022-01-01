@@ -6,13 +6,15 @@
 //
 import Foundation
 import RxSwift
+import UIKit
 
 
 class LoginViewModel{
     //MARK: PROPERTIES
     
-    var loginUseCase:LoginUseCaseProtocol
-    let disposeBag = DisposeBag()
+    private var loginUseCase:LoginUseCaseProtocol
+   private let disposeBag = DisposeBag()
+//    private var loginCoordinator:LoginCoordinagtorProtocol
     
     // MARK: viewsObservabels
     var emailText:BehaviorSubject<String> = BehaviorSubject(value: "")
@@ -29,8 +31,11 @@ class LoginViewModel{
     
     
     
-    init(loginUseCase:LoginUseCaseProtocol = LoginUseCase()) {
+    init(loginUseCase:LoginUseCaseProtocol = LoginUseCase()
+    ){
+//         ,loginCoordinator:LoginCoordinagtorProtocol = LoginCoordinator()) {
         self.loginUseCase = loginUseCase
+//        self.loginCoordinator = loginCoordinator
         
         
     }
@@ -53,13 +58,21 @@ class LoginViewModel{
         }.disposed(by: disposeBag)
     }
     
-        func getData(){
+        func getDataFromCache(){
             self.loginUseCase.observeOnUserDataFromCache()
         }
     
     func getDataFromNetwork(){
-                self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+         let res = self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+//        self.loginCoordinator.toHome()
 
+//        if res?.user?.email != "" {
+//            print("user is not empty")
+//            self.loginCoordinator.toHome()
+//
+//        }
+        
+        
     }
     
     
