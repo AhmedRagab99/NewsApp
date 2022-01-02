@@ -22,16 +22,22 @@ protocol LoginUseCaseProtocol{
     
     func observeOnUserDataFromCache()->UserModel?
     
+    
+    func convretUserCacheModel(user:UserCache)->UserModel
+    
 }
 
 class LoginUseCase:LoginUseCaseProtocol{
     
-    var userRepo:LogInUserRepo
+    var userRepo:LogInUserRepoProtocol
     let disposeBag:DisposeBag = DisposeBag()
     
     
-    init(userRepo:LogInUserRepo = LogInUserRepo()) {
+    init(userRepo:LogInUserRepoProtocol = LogInUserRepo() ) {
+        
         self.userRepo = userRepo
+        
+        
         
     }
     

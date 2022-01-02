@@ -52,22 +52,34 @@ class CoreDataStorageTest: XCTestCase {
     }
     
     
-    func testDelete_user_from_coreData(){
-        sut.CreateUser(user: StubGenerator.stubUsers())
-        sut.CreateUser(user: StubGenerator.stubUsers())
-        let res = sut.fetchUser()
-
-        
-        do {
-            
-            let resArray  = try XCTUnwrap(res)
-            XCTAssertEqual(resArray.count,1)
-            sut.deleteUser(user: resArray[0])
-            XCTAssertEqual(resArray.count,0)
-            
-        } catch let error {
-            XCTFail("caanot unwrap optional wiith \(error.localizedDescription)")
-        }
-    }
-    
+//    func testDelete_user_from_coreData(){
+////        sut.CreateUser(user: StubGenerator.stubUsers())
+//        sut.CreateUser(user: StubGenerator.stubUsers())
+//        let res = sut.fetchUser()
+//
+////        if let result = try? context.fetch(fetchRequest) {
+////            for object in result {
+////                context.delete(object)
+////            }
+////        }
+//
+//        do {
+//
+//             let resArray =  try XCTUnwrap(res)
+//            XCTAssertEqual(resArray.count,1)
+//            resArray.forEach{object in
+//            sut.deleteUser(user: object)
+//        }
+//
+//            XCTAssertEqual(resArray.count,0)
+//
+////            sut.deleteUser(user: resArray[0])
+//
+//
+//
+//        } catch let error {
+//            XCTFail("caanot unwrap optional wiith \(error.localizedDescription)")
+//        }
+//    }
+//
 }

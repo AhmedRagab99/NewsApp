@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     
     var apiKey = ProcessInfo.processInfo.environment["NEWSAPI"] ?? ""
     let dispose = DisposeBag()
-    let useCase:LoginUseCaseProtocol = LoginUseCase()
+    let useCase:LoginUseCaseProtocol = LoginUseCase(userRepo: LogInUserRepo())
     var loginViewModel:LoginViewModel!
     let disposeBag = DisposeBag()
      
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         bindViews()
         activateSubmitButton()
 
-        self.loginViewModel.getDataFromCache()
+//        self.loginViewModel.getDataFromCache()
     
         self.submitButton.rx.tap.subscribe{_ in self.loginViewModel.TapOnSubmitButton()}.disposed(by: disposeBag)
     

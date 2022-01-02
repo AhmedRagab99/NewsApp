@@ -137,10 +137,11 @@ struct UserCoreDataStorage {
     
     func deleteUser(user:UserCache){
 //        let context = persistentContainer.viewContext
-            mainContext.delete(user)
+            
         
         
         do {
+            mainContext.delete(user)
             try mainContext.save()
         } catch let error {
             print(error.localizedDescription)
