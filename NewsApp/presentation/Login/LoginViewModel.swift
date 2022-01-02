@@ -13,13 +13,13 @@ class LoginViewModel{
     //MARK: PROPERTIES
     
     private var loginUseCase:LoginUseCaseProtocol
-   private let disposeBag = DisposeBag()
-//    private var loginCoordinator:LoginCoordinagtorProtocol
+    private let disposeBag = DisposeBag()
+    //    private var loginCoordinator:LoginCoordinagtorProtocol
     
     // MARK: viewsObservabels
     var emailText:BehaviorSubject<String> = BehaviorSubject(value: "")
     
-    var passwordText:BehaviorSubject<String> = BehaviorSubject(value: "")
+    var passwordText:PublishSubject<String> = PublishSubject()
     var passwordConfirmationText:PublishSubject<String> = PublishSubject()
     var submitButtonTaped:PublishSubject<Void> = PublishSubject()
     var loading:PublishSubject<Bool> = PublishSubject()
@@ -33,9 +33,9 @@ class LoginViewModel{
     
     init(loginUseCase:LoginUseCaseProtocol = LoginUseCase()
     ){
-//         ,loginCoordinator:LoginCoordinagtorProtocol = LoginCoordinator()) {
+        //         ,loginCoordinator:LoginCoordinagtorProtocol = LoginCoordinator()) {
         self.loginUseCase = loginUseCase
-//        self.loginCoordinator = loginCoordinator
+        //        self.loginCoordinator = loginCoordinator
         
         
     }
@@ -58,19 +58,19 @@ class LoginViewModel{
         }.disposed(by: disposeBag)
     }
     
-        func getDataFromCache(){
-            self.loginUseCase.observeOnUserDataFromCache()
-        }
+    func getDataFromCache(){
+        self.loginUseCase.observeOnUserDataFromCache()
+    }
     
     func getDataFromNetwork(){
-         let res = self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
-//        self.loginCoordinator.toHome()
-
-//        if res?.user?.email != "" {
-//            print("user is not empty")
-//            self.loginCoordinator.toHome()
-//
-//        }
+        let res = self.loginUseCase.observerOnUserData(userData: ["email":getlastEmailText(),"password":getlastPasswordText()] )
+        //        self.loginCoordinator.toHome()
+        
+        //        if res?.user?.email != "" {
+        //            print("user is not empty")
+        //            self.loginCoordinator.toHome()
+        //
+        //        }
         
         
     }
@@ -113,13 +113,15 @@ class LoginViewModel{
     }
     
     func validateEmail()->Observable<Bool>{
-        return emailText.map{return $0.count > 3 && !$0.isEmpty}
+        return emailText.map{return $0.count > 3 && !$0.isEmpty && $0.contains("@")}
     }
     
     func validatePassword()->Observable<Bool>{
         return Observable.combineLatest(passwordText.asObservable(), passwordConfirmationText.asObservable()).map{ password,confirmPassword in
-            guard password == confirmPassword , password.count >= 4 else {return false}
-            guard password.isEmpty == false , confirmPassword.isEmpty == false else {return false}
+            print(password + " " )
+            print(confirmPassword)
+            guard password == confirmPassword , password.count >= 4 , password.isEmpty == false , confirmPassword.isEmpty == false else {return false}
+            
             return true
         }
     }

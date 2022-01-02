@@ -21,12 +21,20 @@ class LoginRepoMock:LogInUserRepoProtocol{
     
     func getUserDataFromCache() -> Observable<UserCache?> {
        
-        let userCache = getUserCacheModel()
+        let userCache = ModelsHelper.getUserCacheModel()
         return Observable.of(userCache)
     }
     
     
-    func getUserCacheModel()->UserCache{
+  
+    
+    
+}
+
+
+class ModelsHelper{
+    
+    static func getUserCacheModel()->UserCache{
         let user  = UserCache(context: CoreDataMangerStack.shared.mainContext)
         
         user.email = "test@test.com"
@@ -37,6 +45,4 @@ class LoginRepoMock:LogInUserRepoProtocol{
         
         return user
     }
-    
-    
 }

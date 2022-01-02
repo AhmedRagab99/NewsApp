@@ -31,8 +31,6 @@ class LoginUseCaseTest: XCTestCase {
     }
     
     
-    
-    
     func test_getUser_from_network_return_userModel_observable(){
         
         let res = sut.userRepo.getUserLogedInDatafromNetwork(data: [String:Any]())

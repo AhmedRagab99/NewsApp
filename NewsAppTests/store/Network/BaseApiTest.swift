@@ -7,6 +7,7 @@
 
 import XCTest
 import Alamofire
+import RxSwift
 @testable import NewsApp
 
 
@@ -30,14 +31,14 @@ class targetTypeMock:TargetType{
 class BaseApiTest: XCTestCase {
     
     var sut:BaseApi<targetTypeMock>!
-
+    
     override func setUp() {
         super.setUp()
         self.sut  = BaseApi()
     }
     
     override  func tearDown() {
-         sut = nil
+        sut = nil
         super.tearDown()
     }
     
@@ -47,13 +48,14 @@ class BaseApiTest: XCTestCase {
         
         var responceError:ApiError?
         var responceClass:UserModel?
+        
         guard let path = Bundle.main.path(forResource: "stup", ofType: "json") else{
             XCTFail("EError: cannot find the resource file")
             return
         }
         let paramRes = sut.buildParams(task: Task.requestPlain)
         
-  
+        
         sut.fireApiRequest(path: URL(fileURLWithPath: path).description,
                            method: HTTPMethod.get.rawValue,
                            responceClass: UserModel.self, params:paramRes,headers: [])
@@ -68,7 +70,7 @@ class BaseApiTest: XCTestCase {
                 promise.fulfill()
             }
         }
-
+        
         print(responceClass?.user?.email)
         wait(for: [promise], timeout: 1)
         XCTAssertNil(responceError)
@@ -89,11 +91,12 @@ class BaseApiTest: XCTestCase {
         }
         let paramRes = sut.buildParams(task: Task.requestPlain)
         
-  
+        
         sut.fireApiRequest(path: URL(fileURLWithPath: path).description + "test",
                            method: HTTPMethod.get.rawValue,
                            responceClass: UserModel.self, params:paramRes,headers: [])
-        { completion in
+        {
+            completion in
             switch completion{
                 
             case .success(let data):
@@ -104,10 +107,20 @@ class BaseApiTest: XCTestCase {
                 promise.fulfill()
             }
         }
-
+        
         print(responceClass?.user?.email)
         wait(for: [promise], timeout: 1)
         XCTAssertNotNil(responceError)
         XCTAssertNil(responceClass)
     }
+    
+    
+    func test_build_params_function_return_buildParamsType_when_pass_params(){
+        
+        let res = sut.buildParams(task: .request(parameters: ["name":"ahmed","email":"test@test.com"], encoding: JSONEncoding.prettyPrinted))
+        XCTAssertEqual(res.0["name"] as! String, "ahmed")
+        XCTAssertEqual(res.0["email"] as! String, "test@test.com")
+        
+    }
+    
 }
