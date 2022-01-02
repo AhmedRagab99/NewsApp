@@ -150,6 +150,47 @@
 			path = "Bundels+extentions+helpers";
 			sourceTree = "<group>";
 		};
+		D0BC58412781F54200979F2B /* UseCaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */,
+			);
+			path = UseCaseTests;
+			sourceTree = "<group>";
+		};
+		D0BC58422781F55D00979F2B /* store */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC58442781F57500979F2B /* Network */,
+				D0BC58432781F56800979F2B /* Cache */,
+			);
+			path = store;
+			sourceTree = "<group>";
+		};
+		D0BC58432781F56800979F2B /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC583D2780923200979F2B /* CoreDataStorageTest.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		D0BC58442781F57500979F2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC583527807BB700979F2B /* BaseApiTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D0BC58452781F58500979F2B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		D0EC435A2773462800D840B5 = {
 			isa = PBXGroup;
 			children = (
@@ -189,13 +230,12 @@
 		D0EC437F2773462B00D840B5 /* NewsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D0BC58452781F58500979F2B /* Mocks */,
+				D0BC58422781F55D00979F2B /* store */,
+				D0BC58412781F54200979F2B /* UseCaseTests */,
 				D0EC43CF27747A3200D840B5 /* stup.json */,
 				D0BC583727807BE000979F2B /* Bundels+extentions+helpers */,
 				D0EC43802773462B00D840B5 /* NewsAppTests.swift */,
-				D0BC583527807BB700979F2B /* BaseApiTest.swift */,
-				D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */,
-				D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */,
-				D0BC583D2780923200979F2B /* CoreDataStorageTest.swift */,
 			);
 			path = NewsAppTests;
 			sourceTree = "<group>";
