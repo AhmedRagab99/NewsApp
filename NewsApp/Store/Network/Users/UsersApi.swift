@@ -26,9 +26,9 @@ class UserApi:BaseApi<UserNetworking>,UserApiProtocol{
     
     func login(email: String, password: String) -> Observable<UserModel> {
         let result = self.fetchData(target: .logIn(email: email, password: password), responceClass:UserModel.self)
-        print(result.asObservable().subscribe(onNext: { user in
+        print(result.asObservable().subscribe(onNext: {[weak self] user in
             print(user)
-        },onError: { error in
+        },onError: { [weak self] error in
             print(error)
         }).disposed(by: DisposeBag()))
         return result

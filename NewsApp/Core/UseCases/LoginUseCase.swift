@@ -33,7 +33,7 @@ class LoginUseCase:LoginUseCaseProtocol{
     let disposeBag:DisposeBag = DisposeBag()
     
     
-    init(userRepo:LogInUserRepoProtocol = LogInUserRepo() ) {
+    init(userRepo:LogInUserRepoProtocol) {
         
         self.userRepo = userRepo
         
@@ -47,17 +47,17 @@ class LoginUseCase:LoginUseCaseProtocol{
     func observerOnUserData(userData:[String:Any])->UserModel?{
         var tempUser:UserModel?
         self.getUserData(storeType: .network, userData: userData)
-            .subscribe { user  in
+            .subscribe {  [weak self ] user  in
                 if user.user?.name != ""{
                     
                     
                     let res = UserCoreDataStorage.shared.CreateUser(user: user)
                     print("From Core Data with name \(res?.name)")
-                    print(user.user?.name)
+                    print(user.user)
                 }
                 
                 tempUser = user
-            } onError: { error in
+            } onError: { [weak self] error in
                 print(error.localizedDescription)
             } onCompleted: {
                 print("Completed  reequest here")
@@ -72,10 +72,10 @@ class LoginUseCase:LoginUseCaseProtocol{
     func observeOnUserDataFromCache()->UserModel?{
         var tempUser:UserModel?
         self.getUserData(storeType: .cache, userData: ["":""])
-            .subscribe { user in
+            .subscribe { [weak self] user in
                 print("User fetched from core data \(user)")
                 tempUser = user
-            } onError: { error in
+            } onError: { [weak self] error in
                 print(error.localizedDescription)
             } onCompleted: {
                 print("Completed")

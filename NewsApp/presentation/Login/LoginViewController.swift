@@ -15,6 +15,7 @@ import Kingfisher
 
 class LoginViewController: UIViewController {
     
+    var string = ""
     // MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -24,28 +25,24 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     
+    
     // MARK: Propereties
     
     var apiKey = ProcessInfo.processInfo.environment["NEWSAPI"] ?? ""
-    let dispose = DisposeBag()
-    let useCase:LoginUseCaseProtocol = LoginUseCase(userRepo: LogInUserRepo())
     var loginViewModel:LoginViewModel!
     let disposeBag = DisposeBag()
-     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         
         
-        self.loginViewModel =  LoginViewModel()
+        self.loginViewModel =  LoginViewModel(loginUseCase: LoginUseCase(userRepo: LogInUserRepo()))
+        
         bindViews()
         activateSubmitButton()
-
-//        self.loginViewModel.getDataFromCache()
-    
-        self.submitButton.rx.tap.subscribe{_ in self.loginViewModel.TapOnSubmitButton()}.disposed(by: disposeBag)
     
     }
     
@@ -60,24 +57,39 @@ class LoginViewController: UIViewController {
     
   
     func bindViews(){
+        let coordinator = LoginCoordinator(navigationController: navigationController!)
+        emailTextField
+            .rx
+            .text
+            .map{$0 ?? ""}
+            .bind(to:loginViewModel.emailText)
+            .disposed(by: disposeBag)
         
-        emailTextField.rx.text.map{$0 ?? ""}.bind(to:loginViewModel.emailText).disposed(by: disposeBag)
+        passwordTextField
+            .rx
+            .text
+            .map{$0 ?? ""}
+            .bind(to: loginViewModel.passwordText).disposed(by: disposeBag)
         
-        passwordTextField.rx.text.map{$0 ?? ""}
-        .bind(to: loginViewModel.passwordText).disposed(by: disposeBag)
-        
-        confirmPasswordTeextField.rx.text.map{$0 ?? ""}
-        .bind(to:loginViewModel.passwordConfirmationText).disposed(by: disposeBag)
+        confirmPasswordTeextField.rx
+            .text
+            .map{$0 ?? ""}
+            .bind(to:loginViewModel.passwordConfirmationText).disposed(by: disposeBag)
         
         submitButton.rx.tap.bind(to:loginViewModel.submitButtonTaped).disposed(by: disposeBag)
         
         
         loginViewModel.isValid.bind(to:submitButton.rx.isEnabled).disposed(by: disposeBag)
         
-        
+        self.submitButton.rx
+            .tap
+            .subscribe{_ in
+                self.loginViewModel.TapOnSubmitButton()
+                coordinator.toHome()
+            }
+            .disposed(by: disposeBag)
+
     }
-    
-    
 }
 
 

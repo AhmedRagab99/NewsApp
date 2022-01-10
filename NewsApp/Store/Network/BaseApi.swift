@@ -15,27 +15,30 @@ import RxSwift
 class BaseApi<T: TargetType> {
     typealias paramsReturnType = ([String: Any], ParameterEncoding)
     
-    func fetchData<M: Decodable>(target: T, responceClass: M.Type)->Observable<M>
+func fetchData<M: Decodable>(target: T, responceClass: M.Type)->Observable<M>
     //                                 completion: @escaping (Result<M?, ApiError>) ->Void) {
     {
         let headers = HTTPHeaders(target.headers ?? [:])
         let params = buildParams(task: target.task)
         
-        return Observable<M>.create { observer in
+        return Observable<M>.create { [weak self] observer in
             
             print("insidee observer")
             
             
-//            self.fireApiRequest(T, responceClass: responceClass, params: params, headers: headers)
+            //            self.fireApiRequest(T, responceClass: responceClass, params: params, headers: headers)
             
             
-            self.fireApiRequest(path: target.baseUrl+target.path, method: target.method.rawValue, responceClass: responceClass, params: params, headers: headers)
-            { completion in
+            self?.fireApiRequest(path: target.baseUrl+target.path, method: target.method.rawValue, responceClass: responceClass, params: params, headers: headers)
+            { [weak self]
+                completion in
                 switch completion{
                 case .failure(let error):
-                    return observer.onError(error)
+                    observer.onError(error)
+                    observer.onCompleted()
                 case .success(let model):
-                    return  observer.onNext(model!)
+                    observer.onNext(model!)
+                    observer.onCompleted()
                 }
             }
             
@@ -51,7 +54,7 @@ class BaseApi<T: TargetType> {
     func fireApiRequest<M:Decodable>(path:String,method:String,responceClass:M.Type,params:([String: Any], ParameterEncoding),headers:HTTPHeaders,completion:@escaping(Result<M?,ApiError>)->Void){
         
         AF.request(path, method: Alamofire.HTTPMethod(rawValue:method), parameters:params.0, encoding: params.1, headers: headers)
-            .responseData { responce in
+            .responseData {[weak self] responce in
                 switch responce.result{
                 case .success:
                     
@@ -82,7 +85,7 @@ class BaseApi<T: TargetType> {
         
     }
     
-     func buildParams(task: Task) -> paramsReturnType {
+    func buildParams(task: Task) -> paramsReturnType {
         switch task {
         case .requestPlain:
             return ([:], URLEncoding.default)

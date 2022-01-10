@@ -19,26 +19,20 @@ class LoginCoordinator: NSObject,LoginCoordinagtorProtocol{
     var navigationController: UINavigationController?
   
     
-    init(navigationController:UINavigationController = UINavigationController()){
+    init(navigationController:UINavigationController){
         self.navigationController = navigationController
     }
     
     func toHome() {
-        print("here")
+        print("Go To Home")
+        let vc = HomeNewsVC()
+        navigationController?.pushViewController(vc, animated: true)
 //        let vc = HomeNewsVC()
 //        vc.view.backgroundColor = .green
 //        navigationController?.pushViewController(vc, animated: true)
-        launchHomeVC()
+//        launchHomeVC()
     }
+
     
-    
-    private func launchHomeVC(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "home") as! HomeNewsVC
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    
-    
+  
 }

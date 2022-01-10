@@ -6,19 +6,16 @@
 //
 
 import UIKit
-
+import RxSwift
 class HomeNewsVC: UIViewController {
 
+    
+    var newsModel:PublishSubject<NewsModel> = PublishSubject()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .red
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
-
-
 }
+

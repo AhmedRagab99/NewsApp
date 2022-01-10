@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D022895B2788ADF6004FFF7E /* NewsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022895A2788ADF6004FFF7E /* NewsRepo.swift */; };
+		D022895D2788AF7F004FFF7E /* NewsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022895C2788AF7F004FFF7E /* NewsUseCase.swift */; };
 		D0BC5829277B2A8D00979F2B /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BC5827277B2A8D00979F2B /* NewsApp.xcdatamodeld */; };
 		D0BC582D27804D8900979F2B /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC582C27804D8900979F2B /* LoginCoordinator.swift */; };
 		D0BC583027804E0700979F2B /* HomeNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC582F27804E0700979F2B /* HomeNewsVC.swift */; };
-		D0BC58322780565600979F2B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC58312780565600979F2B /* MainCoordinator.swift */; };
+		D0BC58322780565600979F2B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC58312780565600979F2B /* AppCoordinator.swift */; };
 		D0BC583627807BB700979F2B /* BaseApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583527807BB700979F2B /* BaseApiTest.swift */; };
 		D0BC58382780859600979F2B /* stup.json in Resources */ = {isa = PBXBuildFile; fileRef = D0EC43CF27747A3200D840B5 /* stup.json */; };
 		D0BC583A27808CAE00979F2B /* LoginUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */; };
@@ -47,6 +49,7 @@
 		D0EC43E72774A57600D840B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43E62774A57600D840B5 /* LoginViewModel.swift */; };
 		D0EC43ED2779A33900D840B5 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EC2779A33900D840B5 /* UserCache.swift */; };
 		D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */; };
+		D0F3A5062788858200CCC982 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F3A5052788858200CCC982 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D022895A2788ADF6004FFF7E /* NewsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepo.swift; sourceTree = "<group>"; };
+		D022895C2788AF7F004FFF7E /* NewsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUseCase.swift; sourceTree = "<group>"; };
 		D0BC5828277B2A8D00979F2B /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
 		D0BC582C27804D8900979F2B /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D0BC582F27804E0700979F2B /* HomeNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsVC.swift; sourceTree = "<group>"; };
-		D0BC58312780565600979F2B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		D0BC58312780565600979F2B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D0BC583527807BB700979F2B /* BaseApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiTest.swift; sourceTree = "<group>"; };
 		D0BC583927808CAE00979F2B /* LoginUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTest.swift; sourceTree = "<group>"; };
 		D0BC583B27808CEC00979F2B /* LoginRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepoMock.swift; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 		D0EC43E62774A57600D840B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D0EC43EC2779A33900D840B5 /* UserCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
 		D0EC43EE2779A4D900D840B5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		D0F3A5052788858200CCC982 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D0BC582F27804E0700979F2B /* HomeNewsVC.swift */,
+				D0F3A5052788858200CCC982 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -260,7 +267,7 @@
 			children = (
 				D0BC582E27804DDA00979F2B /* Home */,
 				D0EC43E52774A2BA00D840B5 /* Login */,
-				D0BC58312780565600979F2B /* MainCoordinator.swift */,
+				D0BC58312780565600979F2B /* AppCoordinator.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -335,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EC43DF2774946800D840B5 /* loginRepo.swift */,
+				D022895A2788ADF6004FFF7E /* NewsRepo.swift */,
 			);
 			path = Repo;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EC43E327749FFD00D840B5 /* LoginUseCase.swift */,
+				D022895C2788AF7F004FFF7E /* NewsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -529,11 +538,14 @@
 				D0EC43B227745B2100D840B5 /* NewsNetworking.swift in Sources */,
 				D0EC43E02774946800D840B5 /* loginRepo.swift in Sources */,
 				D0BC583027804E0700979F2B /* HomeNewsVC.swift in Sources */,
+				D022895D2788AF7F004FFF7E /* NewsUseCase.swift in Sources */,
 				D0EC43C12774771200D840B5 /* NewsModel.swift in Sources */,
 				D0EC43BB277470A700D840B5 /* UserModel.swift in Sources */,
-				D0BC58322780565600979F2B /* MainCoordinator.swift in Sources */,
+				D0BC58322780565600979F2B /* AppCoordinator.swift in Sources */,
+				D022895B2788ADF6004FFF7E /* NewsRepo.swift in Sources */,
 				D0EC43EF2779A4D900D840B5 /* CoreDataStorage.swift in Sources */,
 				D0EC43692773462800D840B5 /* SceneDelegate.swift in Sources */,
+				D0F3A5062788858200CCC982 /* HomeViewModel.swift in Sources */,
 				D0EC43B427745D7A00D840B5 /* NewsApi.swift in Sources */,
 				D0EC43ED2779A33900D840B5 /* UserCache.swift in Sources */,
 				D0EC43AC277359FE00D840B5 /* BaseApi.swift in Sources */,
@@ -730,7 +742,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -760,7 +772,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
